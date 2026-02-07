@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The It Girl | Claude & Ivy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* CORE STYLES */
+        :root {
+            --bg-body: #FAF9F7;
+            --text-main: #2C2621;
+            --text-muted: #6E665F;
+            --accent: #9A8873;
+            --border-light: #EBE5DF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: var(--text-main); background-color: var(--bg-body); line-height: 1.7; }
+        a { text-decoration: none; color: inherit; transition: opacity 0.3s; }
+        a:hover { opacity: 0.6; }
+        h1, h2, h3, .serif { font-family: 'Cormorant Garamond', serif; }
+        .uppercase { text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; }
+
+        /* Navigation */
+        nav { padding: 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-light); background: #fff; }
+
+        /* Product Layout */
+        .product-container { display: grid; grid-template-columns: 1fr 1.5fr; min-height: 100vh; max-width: 1400px; margin: 0 auto; }
+        .product-info { padding: 4rem; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; background-color: var(--bg-body); }
+        .product-header { margin-bottom: 2rem; }
+        h1 { font-size: 3.5rem; font-weight: 300; line-height: 1; margin-bottom: 0.5rem; }
+        .price { font-size: 1.5rem; color: var(--accent); font-weight: 500; }
+        .description { color: var(--text-muted); margin-bottom: 3rem; max-width: 400px; }
+        
+        .buy-button { display: block; width: 100%; padding: 1.2rem; background: var(--text-main); color: #fff; text-align: center; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.8rem; border: 1px solid var(--text-main); }
+        .buy-button:hover { background: transparent; color: var(--text-main); }
+
+        .product-gallery { padding: 4rem; display: flex; flex-direction: column; gap: 2rem; background-color: #fff; border-left: 1px solid var(--border-light); }
+        .gallery-image { width: 100%; display: block; background: #f0f0f0; }
+
+        @media (max-width: 900px) {
+            .product-container { grid-template-columns: 1fr; }
+            .product-info { position: relative; height: auto; padding: 2rem; order: 1; border-bottom: 1px solid var(--border-light); }
+            .product-gallery { padding: 0; border-left: none; order: 2; }
+            .gallery-image { margin-bottom: 1rem; }
+            h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="../index.html" class="uppercase">← Back to Collection</a>
+        <a href="../index.html" class="serif" style="font-size: 1.5rem;">Claude & Ivy</a>
+        <a href="mailto:claudeandivy@gmail.com" class="uppercase">Inquire</a>
+    </nav>
+
+    <div class="product-container">
+        <div class="product-info">
+            <div class="product-header">
+                <h1>The It Girl</h1>
+                <span class="price serif">₱1,300</span>
+            </div>
+
+            <div class="description">
+                <p>Professional polish meets casual chic. The perfect balance of structure and softness, designed for those who need to transition seamlessly from the office to the weekend.</p>
+            </div>
+
+            <a href="https://m.me/claudeandivy" target="_blank" class="buy-button">
+                Shop via Messenger
+            </a>
+            <p style="text-align: center; font-size: 0.7rem; color: var(--text-muted); margin-top: 1rem;">
+                *Directs to Facebook Messenger for easy ordering
+            </p>
+        </div>
+
+        <div class="product-gallery">
+            <img src="Photo_Gallery/it-girl.jpg" alt="Front View" class="gallery-image">
+            
+            </div>
+    </div>
+
+</body>
+</html>
