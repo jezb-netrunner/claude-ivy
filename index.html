@@ -37,6 +37,11 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
         /* --- Typography Helpers --- */
         h1, h2, h3, .serif-font {
             font-family: 'Cormorant Garamond', serif;
@@ -53,7 +58,7 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            background: rgba(250, 249, 247, 0.85); /* Matches body bg with transparency */
+            background: rgba(250, 249, 247, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid transparent;
             transition: all 0.4s ease;
@@ -79,6 +84,7 @@
             height: 50px;
             width: auto;
             transition: transform 0.3s ease;
+            border-radius: 50%; /* Added to make round logos look cleaner */
         }
         
         .logo:hover {
@@ -123,7 +129,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             align-items: center;
-            padding-top: 80px; /* Space for fixed header */
+            padding-top: 80px; 
         }
 
         .hero-text {
@@ -272,15 +278,21 @@
             margin: 0 auto;
         }
 
+        /* UPDATED: Changed from div to 'a' so it's clickable */
         .product-card {
-            group: product;
+            display: block; /* Makes the anchor behave like a block */
             cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
         .card-image-wrapper {
             position: relative;
             overflow: hidden;
-            aspect-ratio: 4/5; /* Consistent vertical rectangle shape */
+            aspect-ratio: 4/5;
             background-color: #f0f0f0;
             margin-bottom: 1.5rem;
         }
@@ -322,6 +334,14 @@
         }
 
         /* Special Styling for Coming Soon Card */
+        .coming-soon-card {
+            cursor: default; /* Not clickable */
+        }
+        
+        .coming-soon-card:hover {
+            transform: none;
+        }
+
         .coming-soon-card .card-image-wrapper {
             background-color: #F5F3F0;
             display: flex;
@@ -391,7 +411,7 @@
             
             .hero-image {
                 height: 50vh;
-                order: -1; /* Image first on mobile */
+                order: -1;
             }
 
             .hero-text {
@@ -450,7 +470,7 @@
             <a href="#collection" class="cta-button">View Collection</a>
         </div>
         <div class="hero-image">
-            <img src="cover.JPG" alt="Elegant Cover">
+            <img src="ivy.jpg" alt="Elegant Cover">
         </div>
     </section>
 
@@ -471,7 +491,7 @@
         </div>
 
         <div class="product-grid">
-            <div class="product-card">
+            <a href="liberty.html" class="product-card">
                 <div class="card-image-wrapper">
                     <img src="liberty.jpg" alt="Liberty Bag">
                 </div>
@@ -480,9 +500,9 @@
                     <p class="card-desc">Your essential everyday tote.</p>
                     <p class="card-price">₱1,500</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="it-girl.html" class="product-card">
                 <div class="card-image-wrapper">
                     <img src="it-girl.jpg" alt="It Girl Bag">
                 </div>
@@ -491,9 +511,9 @@
                     <p class="card-desc">Professional polish meets casual chic.</p>
                     <p class="card-price">₱1,300</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="cherie.html" class="product-card">
                 <div class="card-image-wrapper">
                     <img src="cherie.jpg" alt="Cherie Bag">
                 </div>
@@ -502,9 +522,9 @@
                     <p class="card-desc">Sleek, compact, and effortlessly sweet.</p>
                     <p class="card-price">₱1,500</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="craving.html" class="product-card">
                 <div class="card-image-wrapper">
                     <img src="craving.jpg" alt="Craving Bag">
                 </div>
@@ -513,9 +533,9 @@
                     <p class="card-desc">Soft structure for versatile styling.</p>
                     <p class="card-price">₱1,500</p>
                 </div>
-            </div>
+            </a>
 
-            <div class="product-card">
+            <a href="ivy.html" class="product-card">
                 <div class="card-image-wrapper">
                     <img src="ivy.jpg" alt="Ivy Bag">
                 </div>
@@ -524,7 +544,7 @@
                     <p class="card-desc">Our signature baguette silhouette.</p>
                     <p class="card-price">₱1,500</p>
                 </div>
-            </div>
+            </a>
 
             <div class="product-card coming-soon-card">
                 <div class="card-image-wrapper">
@@ -542,8 +562,8 @@
         <div class="footer-content">
             <div class="footer-logo">CLAUDE & IVY</div>
             <div class="footer-links">
-                <a href="#">Instagram</a>
-                <a href="#">Facebook</a>
+                <a href="https://instagram.com/claudeandivy" target="_blank">Instagram</a>
+                <a href="https://facebook.com/claudeandivy" target="_blank">Facebook</a>
                 <a href="mailto:claudeandivy@gmail.com">Email Us</a>
             </div>
             <p class="copyright">&copy; 2026 Claude & Ivy. All rights reserved. Baguio City, Philippines.</p>
