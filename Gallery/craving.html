@@ -48,7 +48,7 @@
             h1 { font-size: 2.5rem; }
         }
         
-                /* --- COLOR SWATCH STYLES --- */
+                       /* --- UPDATED COLOR SECTION CSS --- */
         .color-section {
             margin-bottom: 2rem;
         }
@@ -58,27 +58,35 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             color: var(--text-muted);
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             display: block;
         }
         
         .swatch-container {
             display: flex;
-            gap: 0.8rem;
+            flex-wrap: wrap; /* Allows wrapping if names are long */
+            gap: 1.5rem; /* Space between the color groups */
+        }
+        
+        .color-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem; /* Space between the circle and the text */
+            cursor: default;
         }
         
         .swatch {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             border-radius: 50%;
             border: 1px solid #d1d1d1;
-            cursor: help; /* Shows a question mark cursor to prompt hovering for name */
-            transition: transform 0.2s ease;
         }
         
-        .swatch:hover {
-            transform: scale(1.1);
-            border-color: var(--text-main);
+        .swatch-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-main);
+            font-weight: 500;
         }
     </style>
 </head>
@@ -104,8 +112,14 @@
             <div class="color-section">
                 <span class="color-label">Available Colors</span>
                 <div class="swatch-container">
-                    <div class="swatch" style="background-color: #26211f;" title="Espresso Black"></div>
-                    <div class="swatch" style="background-color: #7B5E4F;" title="Mocha Brown"></div>
+                    <div class="color-item">
+                        <div class="swatch" style="background-color: #26211f;"></div>
+                        <span class="swatch-name">Espresso Black</span>
+                    </div>
+                    <div class="color-item">
+                        <div class="swatch" style="background-color: #7B5E4F;"></div>
+                        <span class="swatch-name">Mocha Brown</span>
+                    </div>
                 </div>
             </div>
             
