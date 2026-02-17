@@ -47,6 +47,39 @@
             .gallery-image { margin-bottom: 1rem; }
             h1 { font-size: 2.5rem; }
         }
+        
+                /* --- COLOR SWATCH STYLES --- */
+        .color-section {
+            margin-bottom: 2rem;
+        }
+        
+        .color-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        
+        .swatch-container {
+            display: flex;
+            gap: 0.8rem;
+        }
+        
+        .swatch {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid #d1d1d1;
+            cursor: help; /* Shows a question mark cursor to prompt hovering for name */
+            transition: transform 0.2s ease;
+        }
+        
+        .swatch:hover {
+            transform: scale(1.1);
+            border-color: var(--text-main);
+        }
     </style>
 </head>
 <body>
@@ -67,6 +100,14 @@
             <div class="description">
                 <p>Professional polish meets casual chic. The perfect balance of structure and softness, designed for those who need to transition seamlessly from the office to the weekend.</p>
             </div>
+
+            <div class="color-section">
+            <span class="color-label">Available Colors</span>
+            <div class="swatch-container">
+                <div class="swatch" style="background-color: #26211f;" title="Espresso Black"></div>
+                <div class="swatch" style="background-color: #7B5E4F;" title="Mocha Brown"></div>
+            </div>
+        </div>
 
             <a href="https://www.facebook.com/claudeandivy2600" target="_blank" class="buy-button">
                 Shop via Messenger
