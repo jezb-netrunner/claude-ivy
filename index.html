@@ -3,685 +3,905 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Claude & Ivy | Curated Leather Goods</title>
-    <link rel="icon" type="image/jpeg" href="LOGO.png">
+    <title>Claude & Ivy | Curated Vegan Leather Goods — Baguio City</title>
+    <meta name="description" content="Claude & Ivy curates timeless vegan leather bags rooted in Baguio City. Discover the collection.">
+    <link rel="icon" type="image/png" href="LOGO.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        /* ─── Design Tokens ───────────────────────────────── */
         :root {
-            /* Palette: Earthy Luxury */
-            --bg-body: #FAF9F7;       /* Warm Alabaster */
-            --bg-card: #FFFFFF;
-            --text-main: #2C2621;     /* Deep Loam */
-            --text-muted: #6E665F;    /* Warm Grey */
-            --accent: #9A8873;        /* Muted Clay */
-            --border-light: #EBE5DF;
+            --bg:          #FAF9F7;
+            --white:       #FFFFFF;
+            --ink:         #2C2621;
+            --muted:       #6E665F;
+            --accent:      #9A8873;
+            --border:      #EBE5DF;
+            --hover-bg:    rgba(44,38,33,0.72);
+            --ease:        cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        /* ─── Reset ───────────────────────────────────────── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
         body {
             font-family: 'Montserrat', sans-serif;
-            color: var(--text-main);
-            background-color: var(--bg-body);
+            color: var(--ink);
+            background: var(--bg);
             line-height: 1.7;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
+        a { text-decoration: none; color: inherit; }
+        img { display: block; max-width: 100%; }
+        h1, h2, h3, h4, .serif { font-family: 'Cormorant Garamond', serif; }
+        .caps { text-transform: uppercase; letter-spacing: 0.15em; }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Typography Helpers --- */
-        h1, h2, h3, .serif-font {
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .uppercase {
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        /* --- Header --- */
+        /* ─── Header ──────────────────────────────────────── */
         header {
             position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(250, 249, 247, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid transparent;
-            transition: all 0.4s ease;
-            padding: 1.5rem 0;
+            inset: 0 0 auto 0;
+            z-index: 900;
+            transition: background 0.4s var(--ease), padding 0.4s var(--ease), box-shadow 0.4s;
+            padding: 1.6rem 0;
         }
-
         header.scrolled {
+            background: rgba(255,255,255,0.96);
             padding: 1rem 0;
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border-light);
+            box-shadow: 0 1px 0 var(--border);
+            backdrop-filter: blur(10px);
         }
+        header:not(.scrolled) { background: transparent; }
 
         nav {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 2.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            height: 50px;
-            width: auto;
-            transition: transform 0.3s ease;
+        .logo img {
+            height: 46px;
+            width: 46px;
             border-radius: 50%;
+            object-fit: cover;
+            transition: transform 0.3s var(--ease);
         }
-        
-        .logo:hover {
-            transform: scale(1.02);
-        }
+        .logo img:hover { transform: scale(1.05); }
 
         .nav-links {
             display: flex;
-            gap: 3.5rem;
+            gap: 3rem;
             list-style: none;
         }
-
         .nav-links a {
-            text-decoration: none;
-            color: var(--text-main);
-            font-size: 0.8rem;
+            font-size: 0.72rem;
             font-weight: 500;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
+            color: var(--ink);
             position: relative;
-            padding-bottom: 5px;
+            padding-bottom: 4px;
         }
-
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--text-main);
-            transition: width 0.3s ease;
+            bottom: 0; left: 0;
+            width: 0; height: 1px;
+            background: var(--ink);
+            transition: width 0.3s var(--ease);
         }
+        .nav-links a:hover::after { width: 100%; }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+            z-index: 910;
         }
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 1.5px;
+            background: var(--ink);
+            transition: transform 0.3s var(--ease), opacity 0.3s;
+        }
+        .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-        /* --- Hero Section --- */
-        .hero {
-            min-height: 100vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+        /* Mobile drawer */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: var(--white);
+            z-index: 800;
+            flex-direction: column;
             align-items: center;
-            padding-top: 80px; 
+            justify-content: center;
+            gap: 2.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s var(--ease);
+        }
+        .mobile-menu.open { opacity: 1; pointer-events: all; }
+        .mobile-menu a {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--ink);
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+        .mobile-menu a:hover { color: var(--accent); }
+        .mobile-menu .mobile-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--border);
+        }
+        .mobile-social {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--muted);
+        }
+
+        /* ─── Hero ────────────────────────────────────────── */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1.1fr;
+            min-height: 100svh;
         }
 
         .hero-text {
-            padding: 4rem 6rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            animation: fadeIn 1.2s ease-out;
+            justify-content: flex-end;
+            padding: 8rem 5rem 5rem 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-label {
-            font-size: 0.85rem;
+            font-size: 0.72rem;
             color: var(--accent);
-            margin-bottom: 1.5rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
             font-weight: 600;
+            margin-bottom: 1.4rem;
+            opacity: 0;
+            transform: translateY(12px);
+            animation: rise 0.9s 0.2s var(--ease) forwards;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(2.8rem, 4vw, 4.4rem);
             font-weight: 300;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-            color: var(--text-main);
+            line-height: 1.08;
+            margin-bottom: 1.8rem;
+            opacity: 0;
+            transform: translateY(16px);
+            animation: rise 1s 0.4s var(--ease) forwards;
+        }
+        .hero h1 em { font-style: italic; color: var(--accent); }
+
+        .hero-sub {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 2.8rem;
+            max-width: 340px;
+            opacity: 0;
+            transform: translateY(14px);
+            animation: rise 1s 0.6s var(--ease) forwards;
         }
 
-        .hero h1 span {
-            font-style: italic;
-            color: var(--accent);
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.6rem;
+            background: var(--ink);
+            color: #fff;
+            font-size: 0.72rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 1px solid var(--ink);
+            transition: background 0.3s var(--ease), color 0.3s var(--ease);
+            opacity: 0;
+            transform: translateY(12px);
+            animation: rise 1s 0.8s var(--ease) forwards;
+            align-self: flex-start;
         }
+        .cta-button:hover { background: transparent; color: var(--ink); }
 
         .hero-image {
-            height: 100%;
-            width: 100%;
             position: relative;
             overflow: hidden;
         }
-
         .hero-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center;
-            animation: scaleSlow 20s infinite alternate;
+            animation: slowZoom 22s infinite alternate var(--ease);
+        }
+        /* Subtle left-side vignette blend */
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, var(--bg) 0%, transparent 20%);
+            z-index: 1;
+            pointer-events: none;
         }
 
-        @keyframes scaleSlow {
+        @keyframes rise {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slowZoom {
             from { transform: scale(1); }
-            to { transform: scale(1.1); }
+            to   { transform: scale(1.08); }
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: var(--text-main);
+        /* ─── Campaign Banner ─────────────────────────────── */
+        .campaign {
+            background: var(--ink);
             color: #fff;
-            text-decoration: none;
-            font-size: 0.8rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            border: 1px solid var(--text-main);
+            padding: 5rem 2rem;
+            display: none; /* toggled by JS */
         }
 
-        .cta-button:hover {
-            background: transparent;
-            color: var(--text-main);
-        }
-
-        /* --- Event Section (New) --- */
-        .event-section {
-            background-color: var(--text-main); /* Dark background for contrast */
-            color: #fff;
-            padding: 4rem 2rem;
-            text-align: center;
-            display: none; /* Controlled by JS */
-        }
-
-        .event-content {
-            max-width: 800px;
+        .campaign-inner {
+            max-width: 900px;
             margin: 0 auto;
-            border: 1px solid rgba(255,255,255,0.2);
-            padding: 3rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 3rem;
+            border-left: 1px solid rgba(255,255,255,0.15);
+            padding-left: 3rem;
         }
 
-        .event-tag {
-            color: var(--accent);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
+        .campaign-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.25em;
             text-transform: uppercase;
+            color: var(--accent);
             margin-bottom: 1rem;
             display: block;
         }
 
-        .event-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
+        .campaign h2 {
+            font-size: clamp(2rem, 3.5vw, 3rem);
             font-weight: 300;
-            margin-bottom: 1rem;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
             color: #fff;
         }
 
-        .event-details {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 2rem;
-        }
-
-        .event-link {
-            color: #fff;
-            text-decoration: underline;
-            text-underline-offset: 5px;
+        .campaign-sub {
             font-size: 0.9rem;
+            color: rgba(255,255,255,0.6);
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .campaign-cta {
+            flex-shrink: 0;
+            display: inline-block;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255,255,255,0.4);
+            color: #fff;
+            font-size: 0.72rem;
+            letter-spacing: 0.18em;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
-            transition: color 0.3s;
+            white-space: nowrap;
+            transition: background 0.3s, border-color 0.3s;
         }
+        .campaign-cta:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); }
 
-        .event-link:hover {
-            color: var(--accent);
-        }
-
-
-        /* --- About Section --- */
+        /* ─── About ───────────────────────────────────────── */
         .about {
-            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 8rem 2rem;
-            text-align: center;
+            gap: 6rem;
+            align-items: center;
         }
 
-        .about-logo-mark {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 2rem;
-            border-radius: 50%;
-            overflow: hidden;
-            border: 1px solid var(--border-light);
+        .about-visual {
+            position: relative;
         }
-
-        .about-logo-mark img {
+        .about-visual img {
             width: 100%;
-            height: 100%;
+            aspect-ratio: 4/5;
             object-fit: cover;
         }
+        /* Offset decorative frame */
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            inset: -16px -16px auto auto;
+            width: 60%;
+            height: 60%;
+            border: 1px solid var(--border);
+            z-index: -1;
+        }
 
+        .about-text {}
+        .about-eyebrow {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 1.2rem;
+            display: block;
+        }
         .about h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 400;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 300;
+            margin-bottom: 1.8rem;
+            line-height: 1.2;
         }
-
         .about p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 0.92rem;
+            color: var(--muted);
+            margin-bottom: 1.2rem;
+            line-height: 1.85;
         }
-
         .signature {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
             font-style: italic;
-            margin-top: 2rem;
             color: var(--accent);
+            margin-top: 2rem;
+            display: block;
         }
 
-        /* --- Collection Section --- */
+        /* ─── Collection ──────────────────────────────────── */
         .collection {
             padding: 4rem 2rem 8rem;
-            background: #fff;
-            border-top: 1px solid var(--border-light);
+            background: var(--white);
+            border-top: 1px solid var(--border);
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 5rem;
         }
-
-        .section-header h2 {
-            font-size: 3rem;
-            font-weight: 300;
-            margin-bottom: 1rem;
-        }
-
-        .section-header span {
-            font-size: 0.8rem;
+        .section-header .eyebrow {
+            font-size: 0.7rem;
             color: var(--accent);
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: 0.22em;
+            display: block;
+            margin-bottom: 0.8rem;
+        }
+        .section-header h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 300;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 4rem 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 3.5rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
         }
 
+        /* Card */
         .product-card {
-            display: block; 
+            display: block;
             cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
+            text-decoration: none;
+            color: inherit;
         }
 
         .card-image-wrapper {
             position: relative;
             overflow: hidden;
             aspect-ratio: 4/5;
-            background-color: #f0f0f0;
-            margin-bottom: 1.5rem;
+            background: #F0EDE9;
+            margin-bottom: 1.4rem;
         }
-
         .card-image-wrapper img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s ease;
+            transition: transform 0.7s var(--ease);
         }
-
         .product-card:hover .card-image-wrapper img {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
-        .card-info {
-            text-align: center;
-        }
-
-        .card-title {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 0.5rem;
-            color: var(--text-main);
-        }
-
-        .card-desc {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-bottom: 0.8rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .card-price {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        /* Coming Soon Card */
-        .coming-soon-card {
-            cursor: default;
-        }
-        
-        .coming-soon-card:hover {
-            transform: none;
-        }
-
-        .coming-soon-card .card-image-wrapper {
-            background-color: #F5F3F0;
+        /* Hover overlay */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: var(--hover-bg);
             display: flex;
             align-items: center;
             justify-content: center;
+            opacity: 0;
+            transition: opacity 0.35s var(--ease);
+        }
+        .product-card:hover .card-overlay { opacity: 1; }
+        .card-overlay span {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #fff;
+            border: 1px solid rgba(255,255,255,0.6);
+            padding: 0.8rem 1.8rem;
+        }
+
+        .card-info { text-align: center; }
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 400;
+            margin-bottom: 0.35rem;
+        }
+        .card-desc {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-bottom: 0.75rem;
+        }
+        .card-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+
+        /* Inline colour swatches on card */
+        .card-swatches {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+        }
+        .card-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+        }
+
+        /* Coming-soon card */
+        .coming-soon-card { cursor: default; }
+        .coming-soon-card:hover .card-image-wrapper img { transform: none; }
+        .coming-soon-card .card-image-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F5F3F0;
             border: 1px dashed var(--accent);
         }
-        
         .coming-soon-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-style: italic;
             color: var(--accent);
-            opacity: 0.6;
+            opacity: 0.55;
         }
 
-        /* --- Footer --- */
+        /* ─── Footer ──────────────────────────────────────── */
         footer {
-            background-color: var(--text-main);
+            background: var(--ink);
             color: #fff;
-            padding: 5rem 2rem;
-            text-align: center;
+            padding: 5rem 2rem 3rem;
         }
-
-        .footer-content {
+        .footer-inner {
             max-width: 1200px;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-
-        .footer-logo {
+        .footer-brand .brand-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            letter-spacing: 0.1em;
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
         }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            margin: 0 1.5rem;
-            font-size: 0.8rem;
+        .footer-brand p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            max-width: 240px;
+        }
+        .footer-col h4 {
+            font-size: 0.68rem;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.2em;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 1.2rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 0.7rem; }
+        .footer-col ul li a {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.65);
             transition: color 0.3s;
         }
-
-        .footer-links a:hover {
-            color: #fff;
+        .footer-col ul li a:hover { color: #fff; }
+        .footer-social {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
         }
+        .footer-social a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.65);
+            transition: border-color 0.3s, color 0.3s;
+        }
+        .footer-social a:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+        .footer-social svg { width: 16px; height: 16px; fill: currentColor; }
 
-        .copyright {
-            margin-top: 3rem;
-            font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.4);
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.72rem;
+            color: rgba(255,255,255,0.3);
             letter-spacing: 0.05em;
         }
 
-        /* --- Mobile Responsive --- */
+        /* ─── Scroll Animation ────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Mobile ──────────────────────────────────────── */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
-                min-height: auto;
+                min-height: 100svh;
             }
-            
             .hero-image {
-                height: 50vh;
                 order: -1;
+                height: 55vw;
+                min-height: 280px;
             }
-
+            .hero-image::before { display: none; }
             .hero-text {
-                padding: 4rem 2rem;
-                text-align: center;
+                padding: 3rem 2rem 4rem;
+                justify-content: center;
                 align-items: center;
+                text-align: center;
+            }
+            .hero-sub { max-width: 100%; }
+            .cta-button { align-self: center; }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 5rem 1.5rem;
+            }
+            .about-visual::before { display: none; }
+            .about-visual img { aspect-ratio: 16/9; }
+
+            .campaign-inner {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
-            .hero h1 {
-                font-size: 3rem;
+            .footer-inner {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
             }
+            .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .mobile-menu { display: flex; }
         }
 
         @media (max-width: 600px) {
-            nav {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-links {
-                gap: 1.5rem;
-            }
-
-            .product-grid {
-                grid-template-columns: 1fr;
-                padding: 0 1rem;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            nav { padding: 0 1.5rem; }
+            .product-grid { grid-template-columns: 1fr; padding: 0; }
+            .hero-text { padding: 2.5rem 1.5rem 3.5rem; }
+            .campaign-inner { padding-left: 1.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
+    <!-- ── Header ─────────────────────────────────── -->
+    <header id="site-header">
         <nav>
-            <img src="LOGO.png" alt="Claude & Ivy Logo" class="logo">
+            <a href="#" class="logo" aria-label="Home">
+                <img src="LOGO.png" alt="Claude & Ivy">
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">Our Story</a></li>
                 <li><a href="#collection">Shop</a></li>
+                <li><a href="https://www.facebook.com/claudeandivy2600" target="_blank" rel="noopener">Facebook</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <a href="#about" class="mobile-nav-link">Our Story</a>
+        <div class="mobile-divider"></div>
+        <a href="#collection" class="mobile-nav-link">Shop</a>
+        <div class="mobile-divider"></div>
+        <a href="https://www.facebook.com/claudeandivy2600" target="_blank" class="mobile-nav-link">Facebook</a>
+        <div class="mobile-social">
+            <a href="https://instagram.com/claudeandivy" target="_blank">Instagram</a>
+            <a href="mailto:claudeandivy@gmail.com">Email Us</a>
+        </div>
+    </div>
+
+    <!-- ── Hero ───────────────────────────────────── -->
     <section class="hero">
         <div class="hero-text">
-            <span class="hero-label uppercase">Spring / Summer 2026</span>
-            <h1>Sincerely Yours,<br><span>Claude & Ivy</span></h1>
-            <p style="margin-bottom: 2.5rem; color: var(--text-muted); font-size: 1.1rem;">
-                Timeless vegan leather goods based in Baguio City.
-            </p>
+            <span class="hero-label">Spring / Summer 2026</span>
+            <h1>Sincerely Yours,<br><em>Claude & Ivy</em></h1>
+            <p class="hero-sub">Timeless vegan leather goods rooted in Baguio City.</p>
             <a href="#collection" class="cta-button">View Collection</a>
         </div>
         <div class="hero-image">
-            <img src="cover.JPG" alt="Elegant Cover">
+            <img src="cover.JPG" alt="Claude & Ivy — Spring Summer 2026" loading="eager">
         </div>
     </section>
 
-    <section id="upcoming-event" class="event-section">
-        <div class="event-content">
-            <span class="event-tag">New Campaign</span>
-            <h2 class="event-title">Keep ThriVing<br>— Love, Ivy</h2>
-            <p class="event-details">
-                Celebrating the self, young and matured
-            </p>
-            <a href="https://www.facebook.com/claudeandivy2600" target="_blank" class="event-link">Learn more on Facebook</a>
+    <!-- ── Campaign Banner ────────────────────────── -->
+    <section id="campaign-section" class="campaign">
+        <div class="campaign-inner">
+            <div>
+                <span class="campaign-tag">New Campaign</span>
+                <h2>Keep ThriVing<br>— Love, Ivy</h2>
+                <p class="campaign-sub">Celebrating the self, young and matured.</p>
+            </div>
+            <a href="https://www.facebook.com/claudeandivy2600" target="_blank" rel="noopener" class="campaign-cta">
+                See the Campaign
+            </a>
         </div>
     </section>
 
+    <!-- ── About ──────────────────────────────────── -->
     <section class="about" id="about">
-        <div class="about-logo-mark">
-            <img src="LOGO.png" alt="Logo Mark">
+        <div class="about-visual reveal">
+            <img src="cover.JPG" alt="Claude & Ivy Brand Story" loading="lazy">
         </div>
-        <h2>Our Story</h2>
-        <p>Claude & Ivy brings the charm of the City of Pines to the modern Filipino. We are passionate about curating bags that fit your life, whether you are conquering the daily grind or enjoying a laid-back afternoon.</p>
-        <p>To us, a bag isn't just something you carry; it’s a companion. It holds your essentials and tells your story. As we grow our roots in Baguio, we promise to keep bringing you styles that inspire confidence and celebrate your individuality.</p>
-        <div class="signature">Sincerely, C & I</div>
+        <div class="about-text reveal">
+            <span class="about-eyebrow">Our Story</span>
+            <h2>Rooted in<br>the City of Pines</h2>
+            <p>Claude & Ivy brings the charm of Baguio to the modern Filipino. We curate bags that fit your life — whether you are conquering the daily grind or enjoying a laid-back afternoon.</p>
+            <p>To us, a bag is more than something you carry. It is a companion. It holds your essentials and tells your story. As we grow our roots here, we promise to keep bringing you styles that inspire confidence and celebrate your individuality.</p>
+            <span class="signature">Sincerely, C & I</span>
+        </div>
     </section>
 
+    <!-- ── Collection ─────────────────────────────── -->
     <section class="collection" id="collection">
         <div class="section-header">
-            <span class="uppercase">The Collection</span>
+            <span class="eyebrow">The Collection</span>
             <h2>Curated Essentials</h2>
         </div>
 
         <div class="product-grid">
-            
-            <a href="Gallery/liberty.html" class="product-card">
+
+            <a href="Gallery/liberty.html" class="product-card reveal">
                 <div class="card-image-wrapper">
-                    <img src="liberty.png" alt="Liberty Bag">
+                    <img src="liberty.png" alt="The Liberty Bag" loading="lazy">
+                    <div class="card-overlay"><span>Explore</span></div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">The Liberty</h3>
+                    <h3 class="card-title serif">The Liberty</h3>
                     <p class="card-desc">Your essential everyday tote.</p>
                     <p class="card-price">₱1,500</p>
+                    <div class="card-swatches">
+                        <span class="card-swatch" style="background:#26211f" title="Black"></span>
+                        <span class="card-swatch" style="background:#7B5E4F" title="Brown"></span>
+                    </div>
                 </div>
             </a>
-        
-            <a href="Gallery/it-girl.html" class="product-card">
+
+            <a href="Gallery/it-girl.html" class="product-card reveal">
                 <div class="card-image-wrapper">
-                    <img src="it-girl.png" alt="It Girl Bag">
+                    <img src="it-girl.png" alt="The It Girl Bag" loading="lazy">
+                    <div class="card-overlay"><span>Explore</span></div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">The It Girl</h3>
+                    <h3 class="card-title serif">The It Girl</h3>
                     <p class="card-desc">Professional polish meets casual chic.</p>
                     <p class="card-price">₱1,300</p>
+                    <div class="card-swatches">
+                        <span class="card-swatch" style="background:#26211f" title="Black"></span>
+                        <span class="card-swatch" style="background:#7B5E4F" title="Brown"></span>
+                    </div>
                 </div>
             </a>
-        
-            <a href="Gallery/cherie.html" class="product-card">
+
+            <a href="Gallery/cherie.html" class="product-card reveal">
                 <div class="card-image-wrapper">
-                    <img src="cherie.png" alt="Cherie Bag">
+                    <img src="cherie.png" alt="The Cherie Bag" loading="lazy">
+                    <div class="card-overlay"><span>Explore</span></div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">The Cherie</h3>
+                    <h3 class="card-title serif">The Cherie</h3>
                     <p class="card-desc">Sleek, compact, and effortlessly sweet.</p>
                     <p class="card-price">₱1,500</p>
+                    <div class="card-swatches">
+                        <span class="card-swatch" style="background:#1a1a1a" title="Black"></span>
+                        <span class="card-swatch" style="background:#fff;border-color:#ccc" title="White"></span>
+                        <span class="card-swatch" style="background:#8a1c1c" title="Red"></span>
+                    </div>
                 </div>
             </a>
-        
-            <a href="Gallery/craving.html" class="product-card">
+
+            <a href="Gallery/craving.html" class="product-card reveal">
                 <div class="card-image-wrapper">
-                    <img src="craving.png" alt="Craving Bag">
+                    <img src="craving.png" alt="The Craving Bag" loading="lazy">
+                    <div class="card-overlay"><span>Explore</span></div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">The Craving</h3>
+                    <h3 class="card-title serif">The Craving</h3>
                     <p class="card-desc">Soft structure for versatile styling.</p>
                     <p class="card-price">₱1,500</p>
+                    <div class="card-swatches">
+                        <span class="card-swatch" style="background:#26211f" title="Black"></span>
+                        <span class="card-swatch" style="background:#7B5E4F" title="Brown"></span>
+                    </div>
                 </div>
             </a>
-        
-            <a href="Gallery/ivy.html" class="product-card">
+
+            <a href="Gallery/ivy.html" class="product-card reveal">
                 <div class="card-image-wrapper">
-                    <img src="ivy.png" alt="Ivy Bag">
+                    <img src="ivy.png" alt="The Ivy Bag" loading="lazy">
+                    <div class="card-overlay"><span>Explore</span></div>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">The Ivy</h3>
+                    <h3 class="card-title serif">The Ivy</h3>
                     <p class="card-desc">Our signature baguette silhouette.</p>
                     <p class="card-price">₱1,500</p>
+                    <div class="card-swatches">
+                        <span class="card-swatch" style="background:#6d7a65" title="Ivy Green"></span>
+                    </div>
                 </div>
             </a>
-        
-            <div class="product-card coming-soon-card">
+
+            <div class="product-card coming-soon-card reveal">
                 <div class="card-image-wrapper">
                     <span class="coming-soon-text">Coming Soon</span>
                 </div>
                 <div class="card-info">
-                    <h3 class="card-title serif-font">Summer Collection</h3>
-                    <p class="card-desc">Follow us to get exclusive updates.</p>
+                    <h3 class="card-title serif">Summer Collection</h3>
+                    <p class="card-desc">Follow us for exclusive updates.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
+    <!-- ── Footer ─────────────────────────────────── -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">CLAUDE & IVY</div>
-            <div class="footer-links">
-                <a href="https://instagram.com/claudeandivy" target="_blank">Instagram</a>
-                <a href="https://www.facebook.com/claudeandivy2600" target="_blank">Facebook</a>
-                <a href="mailto:claudeandivy@gmail.com">Email Us</a>
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <p class="brand-name">Claude & Ivy</p>
+                <p>Timeless vegan leather goods from the City of Pines. Crafted for the modern Filipino.</p>
             </div>
-            <p class="copyright">&copy; 2026 Claude & Ivy. All rights reserved. Baguio City, Philippines.</p>
+            <div class="footer-col">
+                <h4>Navigate</h4>
+                <ul>
+                    <li><a href="#about">Our Story</a></li>
+                    <li><a href="#collection">Collection</a></li>
+                    <li><a href="mailto:claudeandivy@gmail.com">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="footer-social">
+                    <!-- Facebook icon -->
+                    <a href="https://www.facebook.com/claudeandivy2600" target="_blank" rel="noopener" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                    </a>
+                    <!-- Instagram icon -->
+                    <a href="https://instagram.com/claudeandivy" target="_blank" rel="noopener" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" style="fill:var(--ink)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" style="stroke:#fff;stroke-width:1.5"/></svg>
+                    </a>
+                    <!-- Email icon -->
+                    <a href="mailto:claudeandivy@gmail.com" aria-label="Email">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    </a>
+                </div>
+                <p style="font-size:0.78rem;color:rgba(255,255,255,0.45);margin-top:1.2rem;line-height:1.7;">Baguio City, Philippines<br>claudeandivy@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Claude & Ivy. All rights reserved.</span>
+            <span>Baguio City, Philippines</span>
         </div>
     </footer>
 
+    <!-- ── Scripts ────────────────────────────────── -->
     <script>
-        // --- CONTROL PANEL ---
-        // Change this to TRUE to show the event, or FALSE to hide it.
-        const SHOW_EVENT = true; 
-        // ---------------------
+        /* ── Campaign toggle ── */
+        const SHOW_CAMPAIGN = true;
+        document.getElementById('campaign-section').style.display = SHOW_CAMPAIGN ? 'block' : 'none';
 
-        // Event Toggle Logic
-        const eventSection = document.getElementById('upcoming-event');
-        if (SHOW_EVENT) {
-            eventSection.style.display = 'block';
-        } else {
-            eventSection.style.display = 'none';
+        /* ── Header scroll ── */
+        const header = document.getElementById('site-header');
+        const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        /* ── Hamburger menu ── */
+        const hamburger  = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        function closeMenu() {
+            hamburger.classList.remove('open');
+            mobileMenu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            mobileMenu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
         }
 
-        // Smooth scroll effect for header
-        const header = document.querySelector('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
+        hamburger.addEventListener('click', () => {
+            const isOpen = hamburger.classList.toggle('open');
+            mobileMenu.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen);
+            mobileMenu.setAttribute('aria-hidden', !isOpen);
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-        // Simple Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
+        mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+        /* ── Scroll reveal (staggered) ── */
+        const revealEls = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    // Stagger cards within the grid
+                    const delay = entry.target.closest('.product-grid')
+                        ? [...revealEls].indexOf(entry.target) % 3 * 80
+                        : 0;
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    io.unobserve(entry.target);
                 }
             });
-        }, observerOptions);
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-        // Apply animations to product cards
-        document.querySelectorAll('.product-card').forEach((card, index) => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = `all 0.6s ease ${index * 0.1}s`;
-            observer.observe(card);
-        });
+        revealEls.forEach(el => io.observe(el));
     </script>
 </body>
 </html>
