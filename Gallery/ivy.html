@@ -4,271 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Ivy | Claude &amp; Ivy</title>
-    <meta name="description" content="Our signature baguette silhouette. Timeless elegance for the modern muse. The Ivy sits perfectly under the arm and eleva">
+    <meta name="description" content="Our signature baguette silhouette. Timeless elegance for the modern muse, sitting perfectly under the arm with structured grace.">
+    <link rel="canonical" href="https://www.claudeandivy.com/Gallery/ivy.html">
     <link rel="icon" type="image/png" href="../LOGO.png">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Ivy | Claude &amp; Ivy">
+    <meta property="og:description" content="Our signature baguette silhouette. Timeless elegance for the modern muse, sitting perfectly under the arm with structured grace.">
+    <meta property="og:image" content="https://www.claudeandivy.com/ivy.png">
+    <meta property="og:url" content="https://www.claudeandivy.com/Gallery/ivy.html">
+    <meta property="og:type" content="product">
+    <meta property="og:site_name" content="Claude &amp; Ivy">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Ivy | Claude &amp; Ivy">
+    <meta name="twitter:description" content="Our signature baguette silhouette. Timeless elegance for the modern muse, sitting perfectly under the arm with structured grace.">
+    <meta name="twitter:image" content="https://www.claudeandivy.com/ivy.png">
+
+    <!-- JSON-LD Product Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "The Ivy",
+        "description": "Our signature baguette silhouette. Timeless elegance for the modern muse. The Ivy sits perfectly under the arm and elevates any ensemble with its structured grace.",
+        "image": "https://www.claudeandivy.com/ivy.png",
+        "brand": { "@type": "Brand", "name": "Claude & Ivy" },
+        "offers": {
+            "@type": "Offer",
+            "price": "1500",
+            "priceCurrency": "PHP",
+            "availability": "https://schema.org/InStock",
+            "url": "https://www.claudeandivy.com/Gallery/ivy.html"
+        }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-
-        /* ─── Design Tokens ─────────────────── */
-        :root {
-            --bg:     #FAF9F7;
-            --white:  #FFFFFF;
-            --ink:    #2C2621;
-            --muted:  #6E665F;
-            --accent: #9A8873;
-            --border: #EBE5DF;
-            --ease:   cubic-bezier(0.25,0.46,0.45,0.94);
-        }
-
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-        html { font-size:16px; }
-        body { font-family:'Montserrat',sans-serif; color:var(--ink); background:var(--bg); line-height:1.7; -webkit-font-smoothing:antialiased; }
-        a { text-decoration:none; color:inherit; }
-        img { display:block; max-width:100%; }
-        h1,h2,h3,.serif { font-family:'Cormorant Garamond',serif; }
-
-        /* ─── Nav ─────────────────────────── */
-        nav {
-            padding: 1.4rem 2.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid var(--border);
-            background: var(--white);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-back {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--muted);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: color 0.3s;
-        }
-        .nav-back:hover { color: var(--ink); }
-        .nav-logo {
-            font-family:'Cormorant Garamond',serif;
-            font-size: 1.4rem;
-            font-weight: 400;
-            letter-spacing: 0.05em;
-        }
-        .nav-inquire {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--muted);
-            transition: color 0.3s;
-        }
-        .nav-inquire:hover { color: var(--ink); }
-
-        /* ─── Product Layout ──────────────── */
-        .product-wrap {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            min-height: calc(100vh - 65px);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* Left panel */
-        .product-info {
-            padding: 4rem;
-            position: sticky;
-            top: 65px;
-            height: calc(100vh - 65px);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow-y: auto;
-            background: var(--bg);
-        }
-
-        .breadcrumb {
-            font-size: 0.68rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
-        }
-        .breadcrumb span { color: var(--ink); }
-
-        h1 {
-            font-size: clamp(2.4rem,3.5vw,3.4rem);
-            font-weight: 300;
-            line-height: 1.05;
-            margin-bottom: 0.5rem;
-        }
-        .price {
-            font-family:'Cormorant Garamond',serif;
-            font-size: 1.5rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 2rem;
-        }
-        .description {
-            font-size: 0.9rem;
-            color: var(--muted);
-            margin-bottom: 2.5rem;
-            max-width: 380px;
-            line-height: 1.85;
-        }
-
-        /* Color section */
-        .color-label {
-            font-size: 0.68rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: var(--muted);
-            margin-bottom: 0.9rem;
-            display: block;
-        }
-        .swatch-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
-            margin-bottom: 2.5rem;
-        }
-        .color-item {
-            display: flex;
-            align-items: center;
-            gap: 0.55rem;
-        }
-        .swatch {
-            width: 22px; height: 22px;
-            border-radius: 50%;
-            border: 1px solid #d1d1d1;
-            flex-shrink: 0;
-        }
-        .swatch-name {
-            font-size: 0.78rem;
-            font-weight: 500;
-        }
-
-        /* CTA */
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 1.15rem;
-            background: var(--ink);
-            color: #fff;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            font-size: 0.75rem;
-            border: 1px solid var(--ink);
-            transition: background 0.3s var(--ease), color 0.3s var(--ease);
-            cursor: pointer;
-        }
-        .buy-btn:hover { background: transparent; color: var(--ink); }
-        .buy-note {
-            text-align: center;
-            font-size: 0.68rem;
-            color: var(--muted);
-            margin-top: 0.8rem;
-        }
-
-        /* Right panel — gallery */
-        .product-gallery {
-            padding: 4rem 3rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            background: var(--white);
-            border-left: 1px solid var(--border);
-        }
-        .gallery-img {
-            width: 100%;
-            display: block;
-            object-fit: cover;
-        }
-
-        /* ─── You May Also Like ───────────── */
-        .also-like {
-            padding: 5rem 2rem;
-            border-top: 1px solid var(--border);
-            background: var(--bg);
-        }
-        .also-like-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .also-like-header span {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--accent);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-        .also-like-header h2 {
-            font-size: 2rem;
-            font-weight: 300;
-        }
-        .also-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem 3rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        .also-card {
-            display: block;
-            text-align: center;
-        }
-        .also-img-wrap {
-            overflow: hidden;
-            aspect-ratio: 4/5;
-            background: #f0ede9;
-            margin-bottom: 1rem;
-        }
-        .also-img-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s var(--ease);
-        }
-        .also-card:hover .also-img-wrap img { transform: scale(1.05); }
-        .also-name { font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:0.2rem; }
-        .also-price { font-size:0.82rem; color:var(--accent); font-weight:500; }
-
-        /* ─── Footer strip ────────────────── */
-        .page-footer {
-            background: var(--ink);
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            padding: 2rem;
-            font-size: 0.72rem;
-            letter-spacing: 0.05em;
-        }
-        .page-footer a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
-        .page-footer a:hover { color: #fff; }
-
-        /* ─── Mobile ──────────────────────── */
-        @media (max-width: 900px) {
-            .product-wrap { grid-template-columns: 1fr; }
-            .product-info { position:static; height:auto; padding:2rem; order:2; }
-            .product-gallery { padding:1.5rem; border-left:none; order:1; }
-            h1 { font-size: 2.4rem; }
-            .description { max-width: 100%; }
-        }
-        @media (max-width: 600px) {
-            nav { padding: 1.2rem 1.5rem; }
-            .also-grid { grid-template-columns: 1fr; max-width: 320px; }
-        }
-
-    </style>
+    <link rel="stylesheet" href="product.css">
 </head>
 <body>
 
-    <nav>
+    <nav aria-label="Product navigation">
         <a href="../index.html" class="nav-back">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
             Collection
         </a>
         <a href="../index.html" class="nav-logo">Claude &amp; Ivy</a>
@@ -279,12 +61,12 @@
         <div class="product-info">
             <p class="breadcrumb">Collection &rsaquo; <span>The Ivy</span></p>
             <h1>The Ivy</h1>
-            <p class="price">₱1,500</p>
+            <p class="price">&#8369;1,500</p>
             <p class="description">Our signature baguette silhouette. Timeless elegance for the modern muse. The Ivy sits perfectly under the arm and elevates any ensemble with its structured grace.</p>
 
             <span class="color-label">Available Colors</span>
-            <div class="swatch-row">
-                <div class="color-item"><div class="swatch" style="background:#6d7a65;border-color:#d1d1d1"></div><span class="swatch-name">Ivy Green</span></div>
+            <div class="swatch-row" role="list" aria-label="Available colors">
+                <div class="color-item" role="listitem"><div class="swatch" style="background:#6d7a65;border-color:#d1d1d1" aria-label="Ivy Green"></div><span class="swatch-name">Ivy Green</span></div>
             </div>
 
             <a href="https://www.facebook.com/claudeandivy2600" target="_blank" rel="noopener" class="buy-btn">
@@ -294,38 +76,38 @@
         </div>
 
         <div class="product-gallery">
-            <img src="Photo_Gallery/ivy.jpg" alt="The Ivy" class="gallery-img" loading="lazy">
-            <img src="Photo_Gallery/ivy-side.jpg" alt="The Ivy" class="gallery-img" loading="lazy">
-            <img src="Photo_Gallery/ivy-detail.jpg" alt="The Ivy" class="gallery-img" loading="lazy">
+            <img src="Photo_Gallery/ivy.jpg" alt="The Ivy — front view" class="gallery-img" width="800" height="1000" loading="lazy">
+            <img src="Photo_Gallery/ivy-side.jpg" alt="The Ivy — side view" class="gallery-img" width="800" height="1000" loading="lazy">
+            <img src="Photo_Gallery/ivy-detail.jpg" alt="The Ivy — detail view" class="gallery-img" width="800" height="1000" loading="lazy">
         </div>
     </div>
 
-    <section class="also-like">
+    <section class="also-like" aria-label="Related products">
         <div class="also-like-header">
             <span>You May Also Like</span>
             <h2>From the Collection</h2>
         </div>
         <div class="also-grid">
-            <a href="liberty.html" class="also-card">
+            <a href="liberty.html" class="also-card" aria-label="The Liberty — &#8369;1,500">
                 <div class="also-img-wrap">
-                    <img src="../liberty.png" alt="The Liberty" loading="lazy">
+                    <img src="../liberty.png" alt="The Liberty" width="1459" height="1945" loading="lazy">
                 </div>
                 <p class="also-name">The Liberty</p>
-                <p class="also-price">₱1,500</p>
+                <p class="also-price">&#8369;1,500</p>
             </a>
-            <a href="cherie.html" class="also-card">
+            <a href="cherie.html" class="also-card" aria-label="The Cherie — &#8369;1,500">
                 <div class="also-img-wrap">
-                    <img src="../cherie.png" alt="The Cherie" loading="lazy">
+                    <img src="../cherie.png" alt="The Cherie" width="1039" height="1385" loading="lazy">
                 </div>
                 <p class="also-name">The Cherie</p>
-                <p class="also-price">₱1,500</p>
+                <p class="also-price">&#8369;1,500</p>
             </a>
         </div>
     </section>
 
     <footer class="page-footer">
         &copy; 2026 Claude &amp; Ivy &nbsp;&middot;&nbsp;
-        <a href="https://www.facebook.com/claudeandivy2600" target="_blank">Facebook</a> &nbsp;&middot;&nbsp;
+        <a href="https://www.facebook.com/claudeandivy2600" target="_blank" rel="noopener">Facebook</a> &nbsp;&middot;&nbsp;
         <a href="mailto:claudeandivy@gmail.com">Email Us</a>
     </footer>
 
