@@ -173,6 +173,7 @@ h1 {
 .gallery-img {
     width: 100%;
     display: block;
+    aspect-ratio: 4/5;
     object-fit: cover;
 }
 
