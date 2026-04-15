@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <rect width="800" height="1000" fill="#F0EDE9"/>
+  <rect x="290" y="360" width="220" height="220" rx="2" fill="none" stroke="#C5BDB8" stroke-width="1.5" stroke-dasharray="8 5"/>
+  <line x1="360" y1="430" x2="440" y2="510" stroke="#C5BDB8" stroke-width="1.5"/>
+  <line x1="440" y1="430" x2="360" y2="510" stroke="#C5BDB8" stroke-width="1.5"/>
+  <circle cx="330" cy="400" r="14" fill="none" stroke="#C5BDB8" stroke-width="1.5"/>
+  <text x="400" y="640" font-family="Georgia, 'Cormorant Garamond', serif" font-size="13" fill="#9A8873" text-anchor="middle" letter-spacing="4">PHOTO COMING SOON</text>
+  <text x="400" y="668" font-family="Georgia, 'Cormorant Garamond', serif" font-size="11" fill="#C5BDB8" text-anchor="middle" letter-spacing="3">Claude &amp; Ivy</text>
+</svg>
